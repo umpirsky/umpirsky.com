@@ -101,4 +101,6 @@ $app->post('/contact', function () use ($app, $view) {
     return $app['twig']->render('contact.twig', array('form' => $app['contact.form']->createView()));
 })->bind('contact_send');
 
+
+// Run
 $app->run();
