@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link rel="shortcut icon" href="http://static.umpirsky.com/umpirsky.com/img/favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" href="http://static.umpirsky.com/umpirsky.com/style/style.min.css" />
+        <title>{% block title %}Saša Stamenković{% endblock %}</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="description" content="{% block description %}Hi, welcome to my little peace of the Internet. Let me introduce myself. My name is Saša Stamenković. I graduated from the University of Niš with a degree in Computer Science.{% endblock %}" />
+        <meta name="keywords" content="{% block keywords %}web developer, Computer Science, software, development, profession, tools, PHP, community, open source, Internet{% endblock %}" />
+		<script type="text/javascript">
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-6935870-2']);
+		  _gaq.push(['_trackPageview']);
+		  (function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+		</script>
+	</head>
+	<body>
+		<div id="content">
+			<h1 id="name" class="georgia"><a href="/">Saša Stamenković</a></h1>
+			<div id="menu_wrapper">
+				<ul id="menu" class="georgia">
+					<li><a href="{{ app.url_generator.generate('about') }}">About</a></li>
+					<li><a href="{{ app.url_generator.generate('portfolio') }}">Portfolio</a></li>
+					<li><a href="{{ app.url_generator.generate('social') }}">Social</a></li>
+					<li><a href="http://dev.umpirsky.com/">Blog</a></li>
+					<li><a href="{{ app.url_generator.generate('contact') }}">Contact</a></li>
+				</ul>
+				</div>
+			{% block content %}{% endblock %}
+		</div>
+	</body>
+</html>

@@ -1,0 +1,4 @@
+{% extends layout %}
+
+{% block title %}{% if 404 == code %}Page Not Found{% else %}Internal server error{% endif %}{% endblock %}
+{% block content %}<h1 class="error">{% if 404 == code %}404{% else %}Error{% endif %}</h1>{% endblock %}

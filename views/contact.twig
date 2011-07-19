@@ -1,0 +1,17 @@
+{% extends layout %}
+
+{% block title %}Contact Me - Saša Stamenković{% endblock %}
+{% block description %}I use to check my inbox every day, so don't hesitate to get in touch with me if you have any questions, comments, ideas...anything.{% endblock %}
+{% block keywords %}web developer, experienced, contact me, contact, send, message, inbox, ideas, comments, questions, answer{% endblock %}
+
+{% block content %}
+<h2 id="title" class="contact georgia">Contact</h2>
+<p>I use to check my inbox every day, so don't hesitate to get in touch with me if you have any questions, comments, ideas...anything. I'll try to answer as soon as possible.</p>
+<form method="post" action="{{ app.url_generator.generate('contact_send') }}" enctype="application/x-www-form-urlencoded">
+    {{ form_row(form.name) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.message) }}
+    <input type="submit" value="Send message" id="send" name="send">
+    {{ form_rest(form) }}
+</form>
+{% endblock %}
