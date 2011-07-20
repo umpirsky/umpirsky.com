@@ -6,7 +6,7 @@
  * (c) Saša Stamenković <umpirsky@gmail.com>
  */
 
-include __DIR__ . '/../vendor/silex.phar'; 
+include __DIR__ . '/../vendor/silex/autoload.php'; 
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;

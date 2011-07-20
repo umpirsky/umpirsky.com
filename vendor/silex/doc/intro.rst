@@ -1,0 +1,47 @@
+Introduction
+============
+
+Silex is a PHP microframework for PHP 5.3. It is built on the shoulders
+of Symfony2 and Pimple and also inspired by sinatra.
+
+A microframework provides the guts for building simple single-file apps.
+Silex aims to be:
+
+* *Concise*: Silex exposes a intuitive and concise API that is fun to use.
+
+* *Extensible*: Silex has an extension system based around the Pimple
+  micro service-container that makes it even easier to tie in third party
+  libraries.
+
+* *Testable*: Silex uses Symfony2's HttpKernel which abstracts request and
+  response. This makes it very easy to test apps and the framework itself.
+  It also respects the HTTP specification and encourages its proper use.
+
+In a nutshell, you define controllers and map them to routes, all in one
+step.
+
+**Let's go!** ::
+
+    require_once __DIR__.'/silex.phar';
+
+    $app = new Silex\Application();
+
+    $app->get('/hello/{name}', function ($name) use ($app) {
+        return 'Hello '.$app->escape($name);
+    });
+
+    $app->run();
+
+All that is needed to get access to the Framework is to include
+``silex.phar``. This phar (PHP Archive) file will take care of the rest.
+
+Next we define a route to ``/hello/{name}`` that matches for ``GET``
+requests. When the route matches, the function is executed and the return
+value is sent back to the client.
+
+Finally, the app is run. It's really that easy!
+
+Installing Silex is as easy as it can get. Download the `silex.phar`_ file
+and you're done!
+
+.. _silex.phar: http://silex-project.org/get/silex.phar
