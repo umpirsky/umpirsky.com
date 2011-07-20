@@ -67,40 +67,37 @@ foreach ($pages as $route => $view) {
     })->bind($view);
 }
 
-$app['contact.form'] = $app['form.factory']
-    ->createBuilder('form')
-    ->add('name', 'text', array('label' => 'Name:'))
-    ->add('email', 'email', array('label' => 'Email:'))
-    ->add('message', 'textarea', array('label' => 'Message:'))
-    ->getForm();
+$app->match('/contact', function () use ($app, $view) {
 
-$app->get('/contact', function () use ($app, $view) {
-    return $app['twig']->render('contact.twig', array('form' => $app['contact.form']->createView()));
-})->bind('contact');
+    $form = $app['form.factory']
+	    ->createBuilder('form')
+	    ->add('name', 'text', array('label' => 'Name:'))
+	    ->add('email', 'email', array('label' => 'Email:'))
+	    ->add('message', 'textarea', array('label' => 'Message:'))
+	    ->getForm();
 
-$app->post('/contact', function () use ($app, $view) {
-    $form = $app['contact.form'];
-    $form->bindRequest($app['request']);
-    if($form->isValid()) {
-        $data = $form->getData();
-        
-        require_once __DIR__ . '/../vendor/swiftmailer/lib/swift_required.php';
-        $message = \Swift_Message::newInstance()
-            ->setSubject(sprintf('Contact from %s', $_SERVER['SERVER_NAME']))
-            ->setFrom(array($data['email']))
-            ->setTo(array('umpirsky@gmail.com'))
-            ->setBody($data['message']);
+    if ('POST' == $app['request']->getMethod()) {
+        $form->bindRequest($app['request']);
+        if ($form->isValid()) {
+            $data = $form->getData();
 
-        $transport = \Swift_MailTransport::newInstance();
-        $mailer = \Swift_Mailer::newInstance($transport);
-        $mailer->send($message);
-        
-        return $app->redirect($app['url_generator']->generate('contact'));
+            require_once __DIR__ . '/../vendor/swiftmailer/lib/swift_required.php';
+            $message = \Swift_Message::newInstance()
+                ->setSubject(sprintf('Contact from %s', $_SERVER['SERVER_NAME']))
+                ->setFrom(array($data['email']))
+                ->setTo(array('umpirsky@gmail.com'))
+                ->setBody($data['message']);
+
+            $transport = \Swift_MailTransport::newInstance();
+            $mailer = \Swift_Mailer::newInstance($transport);
+            $mailer->send($message);
+
+            return $app->redirect($app['url_generator']->generate('contact'));
+        }
     }
 
-    return $app['twig']->render('contact.twig', array('form' => $app['contact.form']->createView()));
-})->bind('contact_send');
-
+    return $app['twig']->render('contact.twig', array('form' => $form->createView()));
+})->bind('contact');
 
 // Run
 $app->run();
