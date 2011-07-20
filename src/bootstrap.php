@@ -6,7 +6,7 @@
  * (c) Saša Stamenković <umpirsky@gmail.com>
  */
 
-include __DIR__ . '/../vendor/silex/autoload.php'; 
+include __DIR__ . '/../vendor/Silex/autoload.php'; 
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
@@ -17,7 +17,7 @@ $app = new Silex\Application();
 // Register extensions
 $app->register(new Silex\Extension\TwigExtension(), array(
     'twig.path' => __DIR__ . '/../views',
-    'twig.class_path' => __DIR__ . '/../vendor/twig/lib',
+    'twig.class_path' => __DIR__ . '/../vendor/Twig/lib',
 ));
 
 $app->register(new Silex\Extension\UrlGeneratorExtension());
