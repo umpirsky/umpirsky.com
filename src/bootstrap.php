@@ -67,8 +67,8 @@ foreach ($pages as $route => $view) {
     })->bind($view);
 }
 
-$app->match('/contact', function () use ($app, $view) {
-
+$app->match('/contact/{sent}', function ($sent) use ($app, $view) {
+    
     $form = $app['form.factory']
 	    ->createBuilder('form')
 	    ->add('name', 'text', array('label' => 'Name:'))
@@ -92,12 +92,21 @@ $app->match('/contact', function () use ($app, $view) {
             $mailer = \Swift_Mailer::newInstance($transport);
             $mailer->send($message);
 
-            return $app->redirect($app['url_generator']->generate('contact'));
+            return $app->redirect($app['url_generator']->generate(
+                'contact', 
+                array('sent' => true)
+            ));
         }
     }
 
-    return $app['twig']->render('contact.twig', array('form' => $form->createView()));
-})->bind('contact');
+    return $app['twig']->render('contact.twig', array(
+        'form' => $form->createView(),
+        'sent' => $sent
+    ));
+})
+    ->convert('sent', function ($sent) { return (bool) $sent; })
+    ->value('sent', false)
+    ->bind('contact');
 
 // Run
 $app->run();
