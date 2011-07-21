@@ -82,15 +82,13 @@ $app->match('/contact/{sent}', function ($sent) use ($app, $view) {
             $data = $form->getData();
 
             require_once __DIR__ . '/../vendor/swiftmailer/lib/swift_required.php';
-            $message = \Swift_Message::newInstance()
-                ->setSubject(sprintf('Contact from %s', $_SERVER['SERVER_NAME']))
-                ->setFrom(array($data['email']))
-                ->setTo(array('umpirsky@gmail.com'))
-                ->setBody($data['message']);
-
-            $transport = \Swift_MailTransport::newInstance();
-            $mailer = \Swift_Mailer::newInstance($transport);
-            $mailer->send($message);
+            \Swift_Mailer::newInstance(\Swift_MailTransport::newInstance())
+                ->send(\Swift_Message::newInstance()
+                    ->setSubject(sprintf('Contact from %s', $_SERVER['SERVER_NAME']))
+                    ->setFrom(array($data['email']))
+                    ->setTo(array('umpirsky@gmail.com'))
+                    ->setBody($data['message'])
+                );
 
             return $app->redirect($app['url_generator']->generate(
                 'contact', 
