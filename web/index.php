@@ -6,4 +6,4 @@
  * (c) Saša Stamenković <umpirsky@gmail.com>
  */
 
-include __DIR__ . '/../src/bootstrap.php'; 
+include __DIR__ . '/../src/app.php'; 
