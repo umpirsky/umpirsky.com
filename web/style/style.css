@@ -1,6 +1,9 @@
+@import "http://fonts.googleapis.com/css?family=Fjord+One";
+
 body {
-	font-family: Arial, Helvetica, sans-serif;
-	background-color: #000000;
+    font-family: 'Fjord One', serif;
+    font-size: 16px;
+	background-color: #090909;
 	color: #FFFFFF;
 	background-image:url("http://static.umpirsky.com//umpirsky.com/img/background.min.png");
 	background-repeat:no-repeat;
@@ -144,6 +147,22 @@ h2#title.portfolio {
 	line-height:55px;
 }
 
+.portfolio-category {
+    font-size:22px;
+    font-weight: bold;
+}
+
+.portfolio-subcategory {
+    font-size:18px;
+    font-weight: bold;
+    padding-top: 5px;
+}
+
+.portfolio-category ul {
+    font-size: 16px;
+    font-weight: normal;
+}
+
 h2#title.social {
 	font-size:165px;
 	line-height:101px;
@@ -172,15 +191,11 @@ ul#menu {
 	list-style:none outside none;
 	padding: 0;
 	margin-left:0;
-	margin-top:15px;
+    margin-top: 5px;
 	text-transform:uppercase;
 }
 
 ul#menu li {
-}
-
-.georgia {
-	font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 form div {
