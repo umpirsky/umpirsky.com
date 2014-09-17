@@ -1,13 +1,12 @@
-body, html { font-family: ProximaNovaRgRegular, Helvetica, Arial, sans-serif; color: rgb(255, 255, 255); background-color: rgb(0, 138, 184); }
+body, html { font: gotham_bold, sans-serif; letter-spacing: 0.06em; color: rgb(255, 255, 255); background-color: #2d3940; }
 img { max-width: 100%; }
 a:link, a:visited { outline: 0px; }
 a:active, a:hover { text-decoration: none; }
-a img { border: 0px; }
-h1, h2, h3, h4, h5, h6 { font-family: ProximaNovaRgBold, Helvetica, Arial, sans-serif; font-weight: 700; }
 #container-wrapper { width: 100%; height: 100%; position: relative; overflow: hidden; text-align: center; -webkit-background-size: cover; background-size: cover; }
-#container-wrapper header { padding-top: 20%; }
-#container-wrapper header h1 { margin: 0px; padding: 0px; font-size: 4.5em; font-weight: 700; letter-spacing: 0.1em; line-height: 1em; text-transform: uppercase; }
-#container-wrapper header p { font-size: 2em; display: inline-block; margin-bottom: 5px; padding: 0px 8px; letter-spacing: 0.1em; line-height: 3em; text-transform: uppercase; }
+#container-wrapper header { padding-top: 5%; }
+#container-wrapper header h1 { padding-top: 20px; font-size: 3em; font-weight: bold; text-transform: uppercase; }
+#container-wrapper header h3 { margin-top: 10px; margin-bottom: 30px; font-size: 1em; font-weight: bold; text-transform: uppercase; }
+#container-wrapper header p { Font: gotham_book; font-size: 18pt; color: #7ca9bf; letter-spacing: -0.2em; }
 #container-wrapper:hover .slider-controls { opacity: 1; transition: all 0.4s ease-in-out; -webkit-transition: all 0.4s ease-in-out; }
 .social-icons .btn { margin-right: 15px; }
 .social-icons { padding-top: 10px; margin-bottom: 35px; }
@@ -17,23 +16,25 @@ h1, h2, h3, h4, h5, h6 { font-family: ProximaNovaRgBold, Helvetica, Arial, sans-
 .btn.btn-clear { border: 1px solid #FFFFFF; color: #FFFFFF; background: 0 0; background-color: none; font-weight: 700; -webkit-transition-duration: .8s; -moz-transition-duration: .8s; -o-transition-duration: .8s; transition-duration: .8s; -webkit-transition-property: -webkit-transform; -moz-transition-property: -moz-transform; -o-transition-property: -o-transform; transition-property: transform; }
 .btn.btn-clear.selected, .btn.btn-clear:hover { -webkit-transform: rotate(360deg); -moz-transform: rotate(360deg); -o-transform: rotate(360deg); }
 .centered { margin-left: auto; margin-right: auto; float: none; }
+
 @font-face {
-    font-family: 'ProximaNovaRgBold';
-    src: url('font/proxima_nova_bold-webfont.eot');
-    src: url('font/proxima_nova_bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('font/proxima_nova_bold-webfont.woff') format('woff'),
-         url('font/proxima_nova_bold-webfont.ttf') format('truetype'),
-         url('font/proxima_nova_bold-webfont.svg#ProximaNovaRgBold') format('svg');
+    font-family: 'gotham_book';
+    src: font-url('fonts/gotham-book-webfont.eot');
+    src: font-url('fonts/gotham-book-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('fonts/gotham-book-webfont.woff') format('woff'),
+         font-url('fonts/gotham-book-webfont.ttf') format('truetype'),
+         font-url('fonts/gotham-book-webfont.svg#gotham_book') format('svg');
     font-weight: normal;
     font-style: normal;
 }
+
 @font-face {
-    font-family: 'ProximaNovaRgRegular';
-    src: url('font/proxima_nova_reg-webfont.eot');
-    src: url('font/proxima_nova_reg-webfont.eot?#iefix') format('embedded-opentype'),
-         url('font/proxima_nova_reg-webfont.woff') format('woff'),
-         url('font/proxima_nova_reg-webfont.ttf') format('truetype'),
-         url('font/proxima_nova_reg-webfont.svg#ProximaNovaRgRegular') format('svg');
+    font-family: 'gotham_bold';
+    src: font-url('fonts/gotham-bold-webfont.eot');
+    src: font-url('fonts/gotham-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('fonts/gotham-bold-webfont.woff') format('woff'),
+         font-url('fonts/gotham-bold-webfont.ttf') format('truetype'),
+         font-url('fonts/gotham-bold-webfont.svg#gotham_bold') format('svg');
     font-weight: normal;
     font-style: normal;
 }
