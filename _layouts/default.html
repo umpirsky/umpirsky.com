@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 {% include head.html %}
-
 <body class="text-center">
     {% if site.google_tag_manager %}
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ site.google_tag_manager }}"
@@ -16,14 +15,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </nav>
             </div>
         </header>
-
         <main role="main" class="inner cover">
-            <h1 class="cover-heading">Saša Stamenković</h1>
-            <p class="lead">Passionate developer</p>
+            {{ content }}
         </main>
-
         {% include footer.html %}
     </div>
 </body>
-
 </html>
