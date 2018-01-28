@@ -1,0 +1,28 @@
+# Site settings
+title: Saša Stamenković
+author: Saša Stamenković
+description: I love open source.
+
+# Google services
+google_verification:
+# Use either direct GA implementation or set up GTM account
+# - using both will skew your data (leave blank to not use at all)
+google_analytics:
+google_tag_manager:
+
+# Build settings
+markdown: kramdown
+redcarpet:
+  extensions: ['smart', 'tables', 'with_toc_data']
+permalink: pretty
+sass:
+  style: compressed
+plugins:
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - css/bootstrap/docs
+  - css/bootstrap/*.html
