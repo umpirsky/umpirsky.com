@@ -93,6 +93,10 @@ body {
   margin-right: 15px;
 }
 
+.social-icons a:hover svg {
+    color: #FF675F;
+}
+
 /*
  * Footer
  */
