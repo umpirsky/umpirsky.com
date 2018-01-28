@@ -88,6 +88,11 @@ body {
   padding: 0 1.5rem;
 }
 
+.social-icons a {
+  text-decoration: none;
+  margin-right: 15px;
+}
+
 /*
  * Footer
  */

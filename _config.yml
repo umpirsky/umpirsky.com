@@ -7,7 +7,7 @@ description: I love open source.
 google_verification:
 # Use either direct GA implementation or set up GTM account
 # - using both will skew your data (leave blank to not use at all)
-google_analytics:
+google_analytics: UA-6935870-2
 google_tag_manager:
 
 # Build settings
